@@ -1,0 +1,16 @@
+<h1>Restuarants</h1>
+
+<ol>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <a  class="card" style="display:inline-block" href="/restaurants/<%= restaurant.id %>">
+        <div >
+          <h3><%= restaurant.name %></h3>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.phone_number %></p>
+          <p><%= restaurant.category %></p>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ol>

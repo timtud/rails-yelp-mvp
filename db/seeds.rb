@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+CAT = ["chinese", "italian", "japanese", "french", "belgian"]
+
+5.times do
+  res = Restaurant.new(name: Faker::Company.name, address: Faker::Address.street_address, category: CAT.sample, phone_number: Faker::PhoneNumber.cell_phone  )
+  if res.valid?
+    res.save
+  end
+end
+
+
