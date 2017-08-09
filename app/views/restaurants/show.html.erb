@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= @restaurant.name %></h1>
 
 <h3><%= @restaurant.address %></h3>
@@ -5,9 +6,19 @@
 <h3><%= @restaurant.category %></h3>
 
 
-  <% @reviews.each do |review| %>
+
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<%= f.input :content %>
+<%= f.input :rating, collection: [1,2,3,4,5] %>
+<div style="display: inline-block;">
+<%= f.submit "Add a review", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Back", restaurants_path , class: "btn btn-danger"%>
+</div>
+  <% @restaurant.reviews.each do |review| %>
     <div class="review">
-      <p><%= review.rating %><i class="fa fa-star" aria-hidden="true"></i></p>
+      <p><%= review.rating %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i></p>
       <p><%= review.content %></p>
     </div>
   <% end %>
@@ -15,9 +26,8 @@
 
 
 
-<%= link_to "Back", restaurants_path %>
-<%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
 <!--
 <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
 <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
  -->
+</div>

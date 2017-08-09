@@ -1,16 +1,14 @@
-<h1>Restuarants <%= link_to "+", new_restaurant_path %></h1>
-
-<ol>
+<div class="container">
+<h1>Restuarants <%= link_to "", new_restaurant_path, style: "text-decoration:none;color:#04ee28;" ,class: "fa fa-plus-square" %></h1>
+<div class="lis-group">
   <% @restaurants.each do |restaurant| %>
-    <li>
-      <a  class="card" style="display:inline-block" href="/restaurants/<%= restaurant.id %>">
-        <div >
+
+      <a  class="list-group-item lsi" style="display:inline-block" href="/restaurants/<%= restaurant.id %>">
           <h3><%= restaurant.name %></h3>
           <p><%= restaurant.address %></p>
           <p><%= restaurant.phone_number %></p>
           <p><%= restaurant.category %></p>
-        </div>
       </a>
-    </li>
   <% end %>
-</ol>
+</div>
+</div>
